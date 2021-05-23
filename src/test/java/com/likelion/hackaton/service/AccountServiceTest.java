@@ -16,18 +16,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AccountServiceTest extends AccountServiceFactory{
 
-    @Test
+    /*@Test
     public void 회원가입() throws Exception{
         // given
         City city = createCity();
         Account account = createAccount(city,"test@email.com");
 
         // when
-        Long id = accountService.join(account);
+        Long id = accountService.signup(account);
 
         // then
         assertEquals(account,accountRepository.findById(id).get());
-    }
-    
+    }*/
+
 
 }

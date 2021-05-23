@@ -1,8 +1,12 @@
 package com.likelion.hackaton.service;
 
 import com.likelion.hackaton.entity.Account;
+import com.likelion.hackaton.entity.City;
+import com.likelion.hackaton.form.AccountForm;
 import com.likelion.hackaton.repository.AccountRepository;
+import com.likelion.hackaton.repository.CityRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -60,9 +64,27 @@ public class AccountService {
      *  (주입이 안된 경우, 빨간줄 에러)
      */
     private final AccountRepository accountRepository;
+    private final CityRepository cityRepository;
+    private final CityService cityService;
+
 
     // 회원가입
-    public Long join(Account account){
+    public Long signup(AccountForm accountform){
+        System.out.println("==================== "+accountform.getName());
+        String cityName = accountform.getCity();
+        City city;
+        if(cityService.isCityEmpty(cityName))
+             city = cityService.createCity(cityName);
+
+        else
+            city = cityService.getCity(cityName);
+
+        Account account = Account.builder()
+                .name(accountform.getName())
+                .password(accountform.getPassword())
+                .email(accountform.getEmail())
+                .city(city)
+                .build();
 
         // 중복 확인
         // 문제가 있다면 exception
