@@ -70,3 +70,12 @@
   border: 0;
   font-weight: bold;
 }
+
+.userLogin{
+  width:95%;
+}
+
+.login_container button{
+  text-align: center;
+  width: 100%;
+}

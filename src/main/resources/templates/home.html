@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head th:replace="fragments/home_header :: home_header">
     <title>Home</title>
@@ -11,10 +11,13 @@
             <div id="logo">
                 <img src="/img/logo.png" style="max-width: 200px;"  alt="Logo">
             </div>
+
             <div id="top_menu">
                 <a href="/">HOME</a> |
-                <a href="/login">LOGIN</a> |
-                <a href="/signup">JOIN</a>
+                <a sec:authorize="isAuthenticated()"><span sec:authentication ="name"/>님! 오늘도 동네를위해! | </a>
+                <a sec:authorize="isAnonymous()" th:href="@{/login}">LOGIN | </a>
+                <a sec:authorize="isAuthenticated()" th:href="@{/logout}">LOGOUT | </a>
+                <a sec:authorize="isAnonymous()" th:href="@{/signup}">SIGNUP</a>
             </div>
  
             <nav>

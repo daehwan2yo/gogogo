@@ -1,6 +1,7 @@
 package com.likelion.hackaton.controller;
 
-import com.likelion.hackaton.form.AccountForm;
+import com.likelion.hackaton.form.LoginForm;
+import com.likelion.hackaton.form.SignupForm;
 import com.likelion.hackaton.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,19 +22,35 @@ public class AccountController {
 
     @GetMapping("/signup")
     public String getSignup(Model model){
-        model.addAttribute("accountForm",new AccountForm());
+        model.addAttribute("signupForm",new SignupForm());
         log.info("get signup");
         return "signup";
     }
 
     @PostMapping("/signup")
-    public String postSignup(@Valid AccountForm accountForm, BindingResult result){
+    public String postSignup(@Valid SignupForm signupForm, BindingResult result){
 
-        if(result.hasErrors()){
-            return "/signup";
-        }
-        accountService.signup(accountForm);
+        if(result.hasErrors())
+            return "signup";
+
+        accountService.signup(signupForm);
         log.info("post signup");
         return "redirect:/";
     }
+
+    @GetMapping("/login")
+    public String getLogin(Model model){
+        model.addAttribute("loginForm",new LoginForm());
+        log.info("get login");
+        return "login";
+    }
+/*
+    @PostMapping("/login")
+    public String postLogin(@Valid LoginForm loginForm, BindingResult result){
+        if(result.hasErrors())
+            return "login";
+
+        log.info("post login");
+        return "redirect:/";
+    }*/
 }

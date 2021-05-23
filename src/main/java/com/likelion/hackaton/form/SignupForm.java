@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 
 @Getter
 @Setter
-public class AccountForm {
+public class SignupForm {
     @NotBlank(message = "이름을 필수로 입력하세요.")
     private String name;
 
@@ -29,6 +29,5 @@ public class AccountForm {
     @NotBlank(message = "동네이름을 넣어주세요.")
     @InputCorrectCity
     private String city;
-    // city
 }
 

@@ -2,18 +2,29 @@ package com.likelion.hackaton.service;
 
 import com.likelion.hackaton.entity.Account;
 import com.likelion.hackaton.entity.City;
-import com.likelion.hackaton.form.AccountForm;
+import com.likelion.hackaton.entity.Role;
+import com.likelion.hackaton.exception.UserNotFoundException;
+import com.likelion.hackaton.form.SignupForm;
 import com.likelion.hackaton.repository.AccountRepository;
 import com.likelion.hackaton.repository.CityRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class AccountService {
+public class AccountService implements UserDetailsService {
 
     /**
      * 필드 인젝션
@@ -64,13 +75,17 @@ public class AccountService {
      *  (주입이 안된 경우, 빨간줄 에러)
      */
     private final AccountRepository accountRepository;
-    private final CityRepository cityRepository;
     private final CityService cityService;
 
 
     // 회원가입
-    public Long signup(AccountForm accountform){
-        System.out.println("==================== "+accountform.getName());
+
+    public Long signup(SignupForm accountform){
+        // password를 암호화 하는 과정
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        accountform.setPassword(passwordEncoder.encode(accountform.getPassword()));
+
+
         String cityName = accountform.getCity();
         City city;
         if(cityService.isCityEmpty(cityName))
@@ -86,27 +101,23 @@ public class AccountService {
                 .city(city)
                 .build();
 
-        // 중복 확인
-        // 문제가 있다면 exception
-        validateDuplicateAccount(account);
-
         accountRepository.save(account);
 
         return account.getId();
     }
 
-    private void validateDuplicateAccount(Account account) {
-        // 유니크 조건을 통해 멀티 쓰레드등에서의 동시성을 방지할수 있음
-        accountRepository.findByEmail(account.getEmail()).ifPresent(ac -> new IllegalStateException("이미 존재하는 회원입니다."));
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Account account= accountRepository.findByEmail(username)
+                .orElseThrow(()->new UserNotFoundException());
+        List<GrantedAuthority> authorityList = new ArrayList<>();
+
+        authorityList.add(new SimpleGrantedAuthority(Role.USER.getValue()));
+
+        return new User(account.getName(),account.getPassword(),authorityList);
     }
 
-    // 로그인
-    public void login(String email, String password){
-        Account account = accountRepository.findByEmail(email).orElseThrow(()->new IllegalStateException("존재하지 않는 회원입니다."));
-        if(account.getPassword() == password){
-            // 로그인 과정
-        }
-    }
 
     /**
      * @Transactional
