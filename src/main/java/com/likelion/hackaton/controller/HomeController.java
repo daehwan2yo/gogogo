@@ -25,4 +25,23 @@ public class HomeController {
         log.info("signup controller");
         return "signup";
     }
+
+    @RequestMapping("/about")
+    public String about(){
+        log.info("about page");
+        return"about";
+    }
+
+    @RequestMapping("/information")
+    public String information(){
+        log.info("information page");
+        return "information";
+    }
+
+    @RequestMapping("/notice")
+    public String notice(){
+        log.info("notice page");
+        return "notice";
+    }
+
 }
