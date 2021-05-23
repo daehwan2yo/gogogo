@@ -10,8 +10,8 @@ spring:
 
   datasource:
     url: jdbc:mysql://gogogo.ccszmnhxhmwx.ap-northeast-2.rds.amazonaws.com/gogogo_db
-    username: admin
-    password: 1q2w3e4r!
+    username: 
+    password: 
     driver-class-name: com.mysql.cj.jdbc.Driver
   profiles:
     active: dev
