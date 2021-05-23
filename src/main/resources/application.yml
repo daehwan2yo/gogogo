@@ -3,9 +3,9 @@ spring:
     hibernate:
       ddl-auto: create
 
-      properties:
-        hibernate:
-          format_sql: true
+    properties:
+      hibernate:
+        format_sql: true
     database: mysql
 
   datasource:

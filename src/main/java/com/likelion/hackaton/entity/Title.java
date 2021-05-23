@@ -11,7 +11,7 @@ public class Title {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "title")
+    @OneToOne(mappedBy = "title",cascade = CascadeType.ALL)
     private City city;
 
     @Column
