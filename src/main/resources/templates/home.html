@@ -5,7 +5,9 @@
     <title>Home</title>
 </head>
 
-<style> body{
+<style>
+    body{
+    font-family: 'Sunflower', sans-serif;
     background-color: #C2D9A2;
 }
 </style>
@@ -13,19 +15,16 @@
 <body>
     <div id="page">
         <header>
-            <div id="logo">
-                <img src="/img/logo.png" style="max-width: 200px;"  alt="Logo">
-            </div>
 
-            <div id="top_menu">
-                <a href="/">HOME</a> |
-                <a sec:authorize="isAuthenticated()"><span sec:authentication ="name"/>님! 오늘도 동네를위해! | </a>
-                <a sec:authorize="isAnonymous()" th:href="@{/login}">LOGIN | </a>
-                <a sec:authorize="isAuthenticated()" th:href="@{/logout}">LOGOUT | </a>
-                <a sec:authorize="isAnonymous()" th:href="@{/signup}">SIGNUP</a>
-            </div>
- 
-            <nav>
+
+            <nav class="hihi">
+
+                <div id="logo">
+                    <a href="/">
+                        <img src="/img/logo.png" style="max-width: 200px;"  alt="Logo">
+                    </a>
+                </div>
+
                 <ul>
                     <!-- about.html 로 이동 -->
                     <li><a href="/about">About</a></li>
@@ -34,16 +33,111 @@
                     <!-- notice.html 로 이동-->
                     <li><a href="/notice">NOTICE</a></li>
 
-                    
+                    <li > <a class="thyemleaf1" sec:authorize="isAuthenticated()"><span sec:authentication ="name"/>님! 오늘도 동네를위해!</a></li>
+                    <li> <a class="thyemleaf2" sec:authorize="isAnonymous()" th:href="@{/login}">LOGIN</a></li>
+                    <li><a class="thyemleaf2" sec:authorize="isAuthenticated()" th:href="@{/logout}">LOGOUT</a></li>
+                    <li><a class="thyemleaf2" sec:authorize="isAnonymous()" th:href="@{/signup}">SIGNUP</a></li>
+
                 </ul>
             </nav>
  
         </header>
 
-        <div class="data1_box">
-            <!--<img class= "mainimg" src="/src/mainimg.jpg" width="100px" height="100px" alt="main img">-->
-            <!-- <button id="startButton">시작하기</button> -->
+        <div class="data1_box"
+             th:object="${api_airForm}">
+
+            <div class="air_text">
+                <p class="air_text_in" th:text="${api_airForm.name}"></p>
+                서울 / 갱신시간 : <p th:text="${api_airForm.dataTime}"></p>
+                출처: 에어코리아
+            </div>
+
+            <div class="mini_box">
+                <p class="air_text_in">서울</p>
+                <span class="gauge" th:if="${api_airForm.seoul}>150">
+                    <p class="gauge_red" th:text="${api_airForm.seoul}"></p>
+                    <p class="danger">매우나쁨</p>
+                </span>
+                <span class="gauge" th:if="${api_airForm.seoul}<151 and ${api_airForm.seoul}>80">
+                    <p class="gauge_orange" th:text="${api_airForm.seoul}"></p>
+                    <p class="danger">나쁨</p>
+                </span>
+                <span class="gauge" th:if="${api_airForm.seoul}<81 and ${api_airForm.seoul}>30">
+                    <p class="gauge_green" th:text="${api_airForm.seoul}"></p>
+                    <p class="danger">보통</p>
+                </span>
+                <span class="gauge" th:unless="${api_airForm.seoul}>0">
+                    <p class="gauge_blue" th:text="${api_airForm.seoul}"></p>
+                    <p class="danger">좋음</p>
+                </span>
+            </div>
+
+            <div class="mini_box">
+                <p class="air_text_in">부산</p>
+                <span class="gauge" th:if="${api_airForm.busan}>150">
+                    <p class="gauge_red" th:text="${api_airForm.busan}"></p>
+                    <p class="danger">매우나쁨</p>
+                </span>
+                <span class="gauge" th:if="${api_airForm.busan}<151 and ${api_airForm.busan}>80">
+                    <p class="gauge_orange" th:text="${api_airForm.busan}"></p>
+                    <p class="danger">나쁨</p>
+                </span>
+                <span class="gauge" th:if="${api_airForm.busan}<81 and ${api_airForm.busan}>30">
+                    <p class="gauge_green" th:text="${api_airForm.busan}"></p>
+                    <p class="danger">보통</p>
+                </span>
+                <span class="gauge" th:unless="${api_airForm.busan}>0">
+                    <p class="gauge_blue" th:text="${api_airForm.busan}"></p>
+                    <p class="danger">좋음</p>
+                </span>
+            </div>
+
+            <div class="mini_box">
+                <p class="air_text_in">광주</p>
+                <span class="gauge" th:if="${api_airForm.gwangju}>150">
+                    <p class="gauge_red" th:text="${api_airForm.gwangju}"></p>
+                    <p class="danger">매우나쁨</p>
+                </span>
+                <span class="gauge" th:if="${api_airForm.gwangju}<151 and ${api_airForm.gwangju}>80">
+                    <p class="gauge_orange" th:text="${api_airForm.gwangju}"></p>
+                    <p class="danger">나쁨</p>
+                </span>
+                <span class="gauge" th:if="${api_airForm.gwangju}<81 and ${api_airForm.gwangju}>30">
+                    <p class="gauge_green" th:text="${api_airForm.gwangju}"></p>
+                    <p class="danger">보통</p>
+                </span>
+                <span class="gauge" th:unless="${api_airForm.gwangju}>0">
+                    <p class="gauge_blue" th:text="${api_airForm.gwangju}"></p>
+                    <p class="danger">좋음</p>
+                </span>
+            </div>
+
+            <div class="mini_box">
+                <p class="air_text_in">제주</p>
+                <span class="gauge" th:if="${api_airForm.jeju}>150">
+                    <p class="gauge_red" th:text="${api_airForm.jeju}"></p>
+                    <p class="danger">매우좋음</p>
+                </span>
+                <span class="gauge" th:if="${api_airForm.jeju}<151 and ${api_airForm.jeju}>80">
+                    <p class="gauge_orange" th:text="${api_airForm.jeju}"></p>
+                    <p class="danger">좋음</p>
+                </span>
+                <span class="gauge" th:if="${api_airForm.jeju}<81 and ${api_airForm.jeju}>30">
+                    <p class="gauge_green" th:text="${api_airForm.jeju}"></p>
+                    <p class="danger">보통</p>
+                </span>
+                <span class="gauge" th:unless="${api_airForm.jeju}>0">
+                    <p class="gauge_blue" th:text="${api_airForm.jeju}"></p>
+                    <p class="danger">좋음</p>
+                </span>
+            </div>
+
+
+
         </div>
+
+
+
         <div class="data2_box">
             <!--<img class= "mainimg" src="/src/mainimg.jpg" width="100px" height="100px" alt="main img">-->
             <!-- <button id="startButton">시작하기</button> -->

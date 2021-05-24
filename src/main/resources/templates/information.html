@@ -3,6 +3,7 @@
 <head th:replace="fragments/information_header :: information_header"/>
 
 <style> body{
+    font-family: 'Sunflower', sans-serif;
     background-color: #C2D9A2;
 }
 </style>
@@ -12,20 +13,13 @@
     <div id="page">
  
         <header>
+            <nav class="hihi">
             <div id="logo">
-                <img src="/img/logo.png" style="max-width: 200px;"  alt="Logo">
+                <a href="/">
+                    <img src="/img/logo.png" style="max-width: 200px;"  alt="Logo">
+                </a>
             </div>
 
-
-            <div id="top_menu">
-                <a href="/">HOME</a> |
-                <a sec:authorize="isAuthenticated()"><span sec:authentication ="name"/>님! 오늘도 동네를위해! | </a>
-                <a sec:authorize="isAnonymous()" th:href="@{/login}">LOGIN | </a>
-                <a sec:authorize="isAuthenticated()" th:href="@{/logout}">LOGOUT | </a>
-                <a sec:authorize="isAnonymous()" th:href="@{/signup}">SIGNUP</a>
-            </div>
-
-            <nav>
                 <ul>
                     <!-- about.html 로 이동 -->
                     <li><a href="/about">About</a></li>
@@ -33,12 +27,16 @@
                     <li><a href="/information">우리동네정보</a></li>
                     <!-- notice.html 로 이동-->
                     <li><a href="/notice">NOTICE</a></li>
-
+                    <li><a class="thyemleaf1" sec:authorize="isAuthenticated()"><span sec:authentication ="name"/>님! 오늘도 동네를위해!</a></li>
+                    <li><a class="thyemleaf2" sec:authorize="isAnonymous()" th:href="@{/login}">LOGIN</a></li>
+                    <li><a  class="thyemleaf2" sec:authorize="isAuthenticated()" th:href="@{/logout}">LOGOUT</a></li>
+                    <li><a  class="thyemleaf2" sec:authorize="isAnonymous()" th:href="@{/signup}">SIGNUP</a></li>
 
                 </ul>
             </nav>
- 
         </header>
+
+
         <div class="location">
             <!-- 회원의 주소지 정보 받아와야함 -->
             <h1>서울시 동작구</h1>

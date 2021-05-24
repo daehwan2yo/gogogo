@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
-<head th:replace="fragments/question_header :: question_header" />>
+<head th:replace="fragments/question_header :: question_header" />
 
 <style> body{
     background-color: #C2D9A2;
@@ -8,9 +8,11 @@
 
 <body>
     <div class= "question1_box"
-        th:object="${questionFoem}">
+        th:object="${questionForm}">
         <img class="earth" src="/img/earth.png">
-        <p class="number" th:text="${questionForm.questionNo}">  /10 </p>
+        <div class="number">
+            <p th:text="${questionForm.questionNo}">/10</p>
+        </div>
         <p class="questionText" th:text="${questionForm.questionText}"> </p>
         <p class="questionText2"> 당신의 선택은? </p>
         <img class= "question1" src="img_q/지각.png" alt="첫번쨰 질문 사진">
