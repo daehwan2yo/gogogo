@@ -27,6 +27,14 @@ header {
   flex-flow: row;
 }
 
+/* 헤더 영역안에 네비게이션 메뉴 배치 */
+nav {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 20px;
+}
+
 .thyemleaf1{
   font-size:11px;
 }
@@ -56,13 +64,7 @@ header {
   color: black;
 }
 
-/* 헤더 영역안에 네비게이션 메뉴 배치 */
-nav {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 20px;
-}
+
 
 nav li {
   display: inline;
@@ -129,7 +131,43 @@ nav li a {
 }
 
 .air_text_in {
+  margin-top: 5px;
   font-size: 30px;
+  text-align: center;
+}
+
+.gauge{
+  text-align: center;
+  font-size: 40px;
+}
+
+.gauge_red{
+  margin-top: 4px;
+  margin-bottom: -10px;
+  color: red;
+
+}
+
+.gauge_orange{
+  margin-top: 4px;
+  margin-bottom: -10px;
+  color: orange;
+}
+
+.gauge_blue{
+  margin-top: 4px;
+  margin-bottom: -10px;
+  color: blue;
+}
+
+.gauge_green{
+  margin-top: 4px;
+  margin-bottom: -10px;
+  color: green;
+}
+
+.danger{
+  font-size: 15px;
 }
 
 h3 {

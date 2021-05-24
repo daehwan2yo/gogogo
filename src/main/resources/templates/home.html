@@ -52,27 +52,84 @@
                 출처: 에어코리아
             </div>
 
-
-
-
             <div class="mini_box">
                 <p class="air_text_in">서울</p>
-                <p th:text="${api_airForm.seoul}"></p>
+                <span class="gauge" th:if="${api_airForm.seoul}>150">
+                    <p class="gauge_red" th:text="${api_airForm.seoul}"></p>
+                    <p class="danger">매우나쁨</p>
+                </span>
+                <span class="gauge" th:if="${api_airForm.seoul}<151 and ${api_airForm.seoul}>80">
+                    <p class="gauge_orange" th:text="${api_airForm.seoul}"></p>
+                    <p class="danger">나쁨</p>
+                </span>
+                <span class="gauge" th:if="${api_airForm.seoul}<81 and ${api_airForm.seoul}>30">
+                    <p class="gauge_green" th:text="${api_airForm.seoul}"></p>
+                    <p class="danger">보통</p>
+                </span>
+                <span class="gauge" th:unless="${api_airForm.seoul}>0">
+                    <p class="gauge_blue" th:text="${api_airForm.seoul}"></p>
+                    <p class="danger">좋음</p>
+                </span>
             </div>
 
             <div class="mini_box">
                 <p class="air_text_in">부산</p>
-                <p th:text="${api_airForm.busan}"></p>
+                <span class="gauge" th:if="${api_airForm.busan}>150">
+                    <p class="gauge_red" th:text="${api_airForm.busan}"></p>
+                    <p class="danger">매우나쁨</p>
+                </span>
+                <span class="gauge" th:if="${api_airForm.busan}<151 and ${api_airForm.busan}>80">
+                    <p class="gauge_orange" th:text="${api_airForm.busan}"></p>
+                    <p class="danger">나쁨</p>
+                </span>
+                <span class="gauge" th:if="${api_airForm.busan}<81 and ${api_airForm.busan}>30">
+                    <p class="gauge_green" th:text="${api_airForm.busan}"></p>
+                    <p class="danger">보통</p>
+                </span>
+                <span class="gauge" th:unless="${api_airForm.busan}>0">
+                    <p class="gauge_blue" th:text="${api_airForm.busan}"></p>
+                    <p class="danger">좋음</p>
+                </span>
             </div>
 
             <div class="mini_box">
                 <p class="air_text_in">광주</p>
-                <p th:text="${api_airForm.gwangju}"></p>
+                <span class="gauge" th:if="${api_airForm.gwangju}>150">
+                    <p class="gauge_red" th:text="${api_airForm.gwangju}"></p>
+                    <p class="danger">매우나쁨</p>
+                </span>
+                <span class="gauge" th:if="${api_airForm.gwangju}<151 and ${api_airForm.gwangju}>80">
+                    <p class="gauge_orange" th:text="${api_airForm.gwangju}"></p>
+                    <p class="danger">나쁨</p>
+                </span>
+                <span class="gauge" th:if="${api_airForm.gwangju}<81 and ${api_airForm.gwangju}>30">
+                    <p class="gauge_green" th:text="${api_airForm.gwangju}"></p>
+                    <p class="danger">보통</p>
+                </span>
+                <span class="gauge" th:unless="${api_airForm.gwangju}>0">
+                    <p class="gauge_blue" th:text="${api_airForm.gwangju}"></p>
+                    <p class="danger">좋음</p>
+                </span>
             </div>
 
             <div class="mini_box">
                 <p class="air_text_in">제주</p>
-                <p th:text="${api_airForm.jeju}"></p>
+                <span class="gauge" th:if="${api_airForm.jeju}>150">
+                    <p class="gauge_red" th:text="${api_airForm.jeju}"></p>
+                    <p class="danger">매우좋음</p>
+                </span>
+                <span class="gauge" th:if="${api_airForm.jeju}<151 and ${api_airForm.jeju}>80">
+                    <p class="gauge_orange" th:text="${api_airForm.jeju}"></p>
+                    <p class="danger">좋음</p>
+                </span>
+                <span class="gauge" th:if="${api_airForm.jeju}<81 and ${api_airForm.jeju}>30">
+                    <p class="gauge_green" th:text="${api_airForm.jeju}"></p>
+                    <p class="danger">보통</p>
+                </span>
+                <span class="gauge" th:unless="${api_airForm.jeju}>0">
+                    <p class="gauge_blue" th:text="${api_airForm.jeju}"></p>
+                    <p class="danger">좋음</p>
+                </span>
             </div>
 
 
