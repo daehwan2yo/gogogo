@@ -2,41 +2,44 @@
 <html xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/notice_header :: notice_header" />
 
-<style> body{
-    background-color: #C2D9A2;
-}
+<style>
+    body{
+        font-family: 'Sunflower', sans-serif;
+    }
 </style>
 
 <body>
     
     <div id="page">
- 
-        <header>
-            <nav class="hihi">
-            <div id="logo">
+
+        <div class="home_header">
+            <div class="logo_image" id="logo">
                 <a href="/">
-                    <img src="/img/logo.png" style="max-width: 200px;"  alt="Logo">
+                    <img src="/img/logo.png" style="width:300px" alt="Logo">
                 </a>
             </div>
+            <div class="home_menu">
+                <nav>
+                    <ul class="home_ul">
+                        <!-- about.html 로 이동 -->
+                        <li><a href="/about">About</a></li>
+                        <!-- information.html 로 이동-->
+                        <li><a href="/information">우리동네정보</a></li>
+                        <!-- notice.html 로 이동-->
+                        <li><a href="/notice">NOTICE</a></li>
 
-                <ul>
-                    <!-- about.html 로 이동 -->
-                    <li><a href="/about">About</a></li>
-                    <!-- information.html 로 이동-->
-                    <li><a href="/information">우리동네정보</a></li>
-                    <!-- notice.html 로 이동-->
-                    <li><a href="/notice">NOTICE</a></li>
-                    <li > <a class="thyemleaf1" sec:authorize="isAuthenticated()"><span sec:authentication ="name"/>님! 오늘도 동네를위해!</a></li>
-                    <li> <a class="thyemleaf2" sec:authorize="isAnonymous()" th:href="@{/login}">LOGIN</a></li>
-                    <li><a class="thyemleaf2" sec:authorize="isAuthenticated()" th:href="@{/logout}">LOGOUT</a></li>
-                    <li><a class="thyemleaf2" sec:authorize="isAnonymous()" th:href="@{/signup}">SIGNUP</a></li>
+                        <li> <a class="thyemleaf1" sec:authorize="isAuthenticated()"><span sec:authentication ="name"/>님! 오늘도 동네를위해!</a></li>
+                        <li> <a class="thyemleaf2" sec:authorize="isAnonymous()" th:href="@{/login}">LOGIN</a></li>
+                        <li> <a class="thyemleaf2" sec:authorize="isAnonymous()" th:href="@{/signup}">SIGNUP</a></li>
+                        <li> <a class="thyemleaf2" sec:authorize="isAuthenticated()" th:href="@{/logout}">LOGOUT</a></li>
 
 
+                    </ul>
+                </nav>
+            </div>
 
-                </ul>
-            </nav>
- 
-        </header>
+
+        </div>
         
         <div class="notice_container">
                 <h4 class="title">저탄소생활</h4>
@@ -102,7 +105,13 @@
                         </tr>
                     </table>
                 </details>
-                
+                <br>
+            <h4 class="title">헷갈리는 쓰레기 분리배출법</h4>
+                <div class = recycle>
+
+                    <img src ="/img/분리배출.jpg" width="330px" height="330px">
+                    <img src="/img/분리배출법.jpg" width="330px" height="330px">
+                </div>
         </div>   
 
 

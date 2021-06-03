@@ -99,6 +99,7 @@ public class AccountService implements UserDetailsService {
                 .password(accountform.getPassword())
                 .email(accountform.getEmail())
                 .city(city)
+                .cityName(cityName)
                 .build();
 
         accountRepository.save(account);

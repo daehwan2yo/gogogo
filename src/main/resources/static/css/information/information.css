@@ -12,119 +12,55 @@ a {
   text-decoration: none;
 } /* 링크에 밑줄 같은거 제거*/
 
-header {
-  width: 800px; /*메인 이미지의 너비 사이즈와 같음*/
-  height: 95px;
-  background-color: li;
-
-  /* header 안에 요소들을 모두 absolute 포지션으로 배치할 것이라서 */
-  /* absolute 요소가 header의 좌상단을 기준으로 하려면 */
-  /* header의 position이 relative 여야만 함 */
-  position: relative;
-}
-.hihi{
-  display: flex;
-  flex-flow: row;
-}
-
-/* 헤더 영역안에 네비게이션 메뉴 배치 */
-nav {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 20px;
-}
-
-
-.thyemleaf1{
-  font-size:11px;
-}
-
-.thyemleaf2{
-  font-size:10px;
-}
 
 /* 제목영역안에 있는 메인 로고 이미지 위치 지정 */
-/*#logo {
-  width: 10px;
-  height: 10px;
-  margin-top: 15px;
-  background-position: 20% 20%;
-}*/
 
-/* 제목영역안에 오른쪽 상단에 top_menu 배치 */
-#top_menu {
-  position: absolute;
-  top: 20px;
-  right: 10px;
+.title{
+  width: 110%;
+  text-align: center;
+}
+
+.title a {
+  font-size: 20px;
+  font-weight: bold;
   color: black;
 }
 
-/* top_menu a의 글시 하얀색으로 */
-#top_menu a {
-  color: black;
+body {
+  background-color: #c3edff;
 }
 
-
-nav li {
-  display: inline;
-  margin-left: 30px;
+#sky{
+  width: 110%;
 }
 
-nav li a {
-  color: black;
+#sky .cloud1 {
+  margin-left: 60%;
 }
 
-.location h1 {
+#sky .cloud2 {
+  margin-left: 30%;
+}
+
+#sky .cloud3 {
+  margin-left: 80%px;
+}
+
+#sky h1 {
   text-align: center;
   font-weight: bold;
   font-size: 25px;
-  margin-top: 200px;
 }
 
-/* .location_box {
-  margin: 20 20 20 20;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  margin-left: 300px;
-  padding: 30px;
-  box-shadow: 5px 5px 5px 5px lightgray;
-  background-color: #bfef88;
-  border-radius: 1px;
-  width: 160px;
-  height: 10px;
-  border: lpx solid black;
-}
-
-.location_box a {
-  vertical-align: middle;
+.badge{
+  width: 110%;
   text-align: center;
-  font-size: 25px;
-  font-weight: bold;
-  color: black;
-  /* margin-left: px; }*/
-
-.title_box {
-  margin: 20px;
-  padding: 30px;
-  box-shadow: 5px 5px 5px 5px lightgrey;
-  background-color: #bfef88;
-  border-radius: 1px;
-  height: 5px;
-  width: 870px;
-}
-
-.title_box a {
-  text-align: center;
-  font-size: 25px;
-  font-weight: bold;
-  color: black;
 }
 
 .badge p {
   color: black;
-  position: absolute;
-  margin-top: 30px;
+  margin-top: 50px;
+  font-weight: bold;
 }
 
 .badge_img {
@@ -132,8 +68,13 @@ nav li a {
   margin-top: 100px;
 }
 
-/* footer 영역 */
-footer {
+#page {
+  width: 820px;
+  margin: 0px auto;
+}
+
+
+* footer {
   width: 100%; /*헤더와 같은 사이즈*/
   height: 120px;
   background-color: skyblue;
@@ -141,7 +82,6 @@ footer {
   left: 0;
   padding: 15px 0;
   position: flex;
-  margin-top: 70px;
 }
 
 #footer_box {
@@ -163,6 +103,6 @@ footer {
 }
 
 #page {
-  width: 820px;
+  width: 930px;
   margin: 0px auto;
 }

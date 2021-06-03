@@ -4,27 +4,63 @@
 
 <style> body{
     background-color: #C2D9A2;
-}</style>
+    font-family: 'Sunflower', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+}
+</style>
 
 <body>
-    <div class= "question1_box"
-        th:object="${questionForm}">
-        <img class="earth" src="/img/earth.png">
-        <div class="number">
-            <p th:text="${questionForm.questionNo}">/10</p>
-        </div>
-        <p class="questionText" th:text="${questionForm.questionText}"> </p>
-        <p class="questionText2"> 당신의 선택은? </p>
-        <img class= "question1" src="img_q/지각.png" alt="첫번쨰 질문 사진">
+    <div class= "question1_box" th:object="${questionFrom}">
 
-        <div class="answer">
-            <button class="answer1"
-                    th:text="${questionForm.answer1}"
-                    onclick= "location.href='/question/no'">  </button>
-            <button class="answer2"
-                    th:text="${questionForm.answer2}"
-                    onclick= "location.href='question2.html'"> </button>
-        </div>    
+            <img class="earth" src="/img/earth.png">
+
+            <div class="number">
+
+                <p th:text="${questionForm.questionNo}"></p>
+
+            </div>
+
+
+            <section th:if="${questionForm.questionNo}==1">
+                <p class="questionText" th:text="${questionForm.questionText}"> </p>
+                <p class="questionText2"> 당신의 선택은? </p>
+                <img class= "question1" src="/img/지각.png" alt="질문 사진">
+            </section>
+
+
+            <section th:if="${questionForm.questionNo}==2">
+                <p class="questionText" th:text="${questionForm.questionText}"> </p>
+                <p class="questionText2"> 당신의 선택은? </p>
+                <img class= "question1" src="/img/뭐입.png" alt="질문 사진">
+            </section>
+
+            <section th:if="${questionForm.questionNo}==3">
+                <p class="questionText" th:text="${questionForm.questionText}"> </p>
+                <p class="questionText2"> 당신의 선택은? </p>
+                <img class= "question1" src="/img/출근길.png" alt="질문 사진">
+            </section>
+                <div class="answer">
+                        <div class="answer1">
+                        <a
+                                th:text="${questionForm.answer1}"
+                                th:href="@{/question(questionNo=${questionForm.questionNo+1})}"
+                                > </a>
+                        </div>
+                    <div class="answer1">
+                        <a
+                                th:text="${questionForm.answer2}"
+                                th:href="@{/question(questionNo=${questionForm.questionNo+1})}"
+                        > </a>
+                    </div>
+
+                </div>
+
+
+
     </div>
 </body>
 </html>

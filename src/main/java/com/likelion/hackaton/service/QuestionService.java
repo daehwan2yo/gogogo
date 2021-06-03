@@ -39,6 +39,12 @@ public class QuestionService {
                 questionForm.setAnswer1("이제 좀 쉬어야겠다… 게임이나 하러가자! ");
                 questionForm.setAnswer2("수업도 끝났겠다! 몸을 좀 움직여 볼까?");
                 break;
+
+            case 6:
+                questionForm.setQuestionText("아르바이트를 좀 해볼까…? 당신은…");
+                questionForm.setAnswer1("돈은 적게 주지만 상대적으로 편한 편의점");
+                questionForm.setAnswer2("돈은 많이 주지만 상대적으로 힘든 상하차");
+                break;
         }
 
         return questionForm;
