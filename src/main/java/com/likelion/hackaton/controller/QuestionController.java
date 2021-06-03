@@ -26,4 +26,17 @@ public class QuestionController {
         log.info("get quesion : "+questionNo);
         return "question";
     }
+
+    @GetMapping("/question")
+    public String nextQuestion2(@RequestParam("questionNo") int questionNo,
+                               Model model){
+
+        if(questionNo == 7){
+            return "result";
+        }
+        QuestionForm questionForm = questionService.getQuestion(questionNo);
+        model.addAttribute("questionForm",questionForm);
+        log.info("get quesion : "+questionNo);
+        return "question";
+    }
 }
