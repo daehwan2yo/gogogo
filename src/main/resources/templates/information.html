@@ -9,8 +9,9 @@
 </style>
 
 
-<body>
-    <div id="page">
+<body >
+
+    <div id="page" >
 
 
         <div class="home_header">
@@ -41,51 +42,52 @@
 
 
         </div>
+        <div sec:authorize="isAuthenticated()">
+            <hr width="110%">
+                <div class="title">
+                    <a>우리 동네 타이틀: 탄소 청소기</a>
+                </div>
+            <hr width="110%">
 
-        <hr width="110%">
-        <div class="title">
-            <a>우리 동네 타이틀: 탄소 청소기</a>
-        </div>
-        <hr width="110%">
+            <div id="sky">
+                <img class="sun" src="/img/해.png" width="90px" height="80px" alt="sun">
+                <img class="cloud1" src="/img/구름1.png" width="100px" height="100px">
+                <h1>"이번달 환경 지킴이"<br></h1>
+                    <h1 sec:authentication="name"></h1>
+                <img class="cloud2"src="/img/구름1.png" width="80px" height="80px" alt="cloud">
+            </div>
 
-        <div id="sky">
-            <img class="sun" src="/img/해.png" width="90px" height="80px" alt="sun">
-            <img class="cloud1" src="/img/구름1.png" width="100px" height="100px">
-            <h1>"이번달 환경 지킴이"<br>서울시 동작구</h1>
-            <img class="cloud2"src="/img/구름1.png" width="80px" height="80px" alt="cloud">
-        </div>
-        
 
-        <hr width="110%">
-        <div class="badge">
-            <a>오늘의 뱃지</a>
-        </div>
-        <hr width="110%">
+            <hr width="110%">
+                <div class="badge">
+                    <a>오늘의 뱃지</a>
+                </div>
+            <hr width="110%">
 
-        <div class="badge_img">
-            <img src="/img/ecobag.png" style="max-width: 50px;"  alt="bag">
-            <img src="/img/ecobag.png" style="max-width: 50px;"  alt="bag">
-            <img src="/img/ecobag.png" style="max-width: 50px;"  alt="bag">
-            <img src="/img/ecobag.png" style="max-width: 50px;"  alt="bag">
+                <div class="badge_img">
+                    <img src="/img/ecobag.png" style="max-width: 50px;"  alt="bag">
+                    <img src="/img/ecobag.png" style="max-width: 50px;"  alt="bag">
+                    <img src="/img/ecobag.png" style="max-width: 50px;"  alt="bag">
+                    <img src="/img/ecobag.png" style="max-width: 50px;"  alt="bag">
+                </div>
+            <div class="footer_house">
+                <img src="/img/새싹.png" class="sprout"width="50px" height="50px" alt="sprout">
+                <img src="/img/새싹.png" class="sprout"width="50px" height="50px" alt="sprout">
+                <img src="/img/home.png" class="home"width="300px" height="250px" alt="home">
+            </div>
+            <div class="footer_tree">
+                <img src="/img/새싹.png" class="sprout"width="50px" height="50px" alt="sprout">
+                <img src="/img/나무.png" class="tree" width="300px" height="300px"  alt="tree">
+                <img src="/img/새싹.png" class="sprout"width="50px" height="50px" alt="sprout">
+                <img src="/img/새싹.png" class="sprout"width="50px" height="50px" alt="sprout">
+            </div>
         </div>
+
+        <div>
+
+        </div>
+        <p sec:authorize="isAnonymous()"> 로그인 후에 사용이 가능합니다!</p>
     </div>
-
-
-    </div>
-    <div>
-        <div class="footer_house">
-        <img src="/img/새싹.png" class="sprout"width="50px" height="50px" alt="sprout">
-        <img src="/img/새싹.png" class="sprout"width="50px" height="50px" alt="sprout">
-        <img src="/img/home.png" class="home"width="300px" height="250px" alt="home">
-        </div>
-        <div class="footer_tree">
-        <img src="/img/새싹.png" class="sprout"width="50px" height="50px" alt="sprout">
-        <img src="/img/나무.png" class="tree" width="300px" height="300px"  alt="tree">
-        <img src="/img/새싹.png" class="sprout"width="50px" height="50px" alt="sprout">
-        <img src="/img/새싹.png" class="sprout"width="50px" height="50px" alt="sprout">
-        </div>
-    </div>
-
 
         
 </body>

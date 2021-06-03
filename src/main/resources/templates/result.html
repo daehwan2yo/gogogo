@@ -1,6 +1,17 @@
 <html xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/result_header :: result_header" />
 
+<style>
+    body{
+        background-color: #C2D9A2;
+        font-family: 'Sunflower', sans-serif;
+    }
+    a{
+        text-decoration-color: none;
+        text-decoration: none;
+        color: white;
+    }
+</style>
 <body>
     <div class= "result1_box">
         <p class="result1"> 음식만 보면 이성을 잃어버리는 "먹방꿈나무형"</p>
@@ -23,8 +34,7 @@
         <hr class="line">
 
         <div class="atc">
-            <button class="main" onclick= "location.href='main.html'"> 메인화면으로 돌아가기 </button>
-            <button class="result"> 결과 저장하기 </button>
+            <a href= "/"> 메인화면으로 돌아가기 </a>
         </div> 
     </div>
 </body>

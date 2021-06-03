@@ -30,4 +30,6 @@ public class Account {
     @JoinColumn(name="city_id")
     private City city;
 
+    @Column
+    private String cityName;
 }
