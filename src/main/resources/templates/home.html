@@ -8,53 +8,47 @@
 <style>
     body{
     font-family: 'Sunflower', sans-serif;
-    background-color: #C2D9A2;
-}
+    }
 </style>
 
 <body>
     <div id="page">
-        <header>
-
-
-            <nav class="hihi">
-
-                <div id="logo">
+        <div class="home_header">
+                <div class="logo_image" id="logo">
                     <a href="/">
-                        <img src="/img/logo.png" style="max-width: 200px;"  alt="Logo">
+                        <img src="/img/logo.png" style="width:300px" alt="Logo">
                     </a>
                 </div>
+                <div class="home_menu">
+                    <nav>
+                        <ul class="home_ul">
+                            <!-- about.html 로 이동 -->
+                            <li><a href="/about">About</a></li>
+                            <!-- information.html 로 이동-->
+                            <li><a href="/information">우리동네정보</a></li>
+                            <!-- notice.html 로 이동-->
+                            <li><a href="/notice">NOTICE</a></li>
 
-                <ul>
-                    <!-- about.html 로 이동 -->
-                    <li><a href="/about">About</a></li>
-                    <!-- information.html 로 이동-->
-                    <li><a href="/information">우리동네정보</a></li>
-                    <!-- notice.html 로 이동-->
-                    <li><a href="/notice">NOTICE</a></li>
-
-                    <li > <a class="thyemleaf1" sec:authorize="isAuthenticated()"><span sec:authentication ="name"/>님! 오늘도 동네를위해!</a></li>
-                    <li> <a class="thyemleaf2" sec:authorize="isAnonymous()" th:href="@{/login}">LOGIN</a></li>
-                    <li><a class="thyemleaf2" sec:authorize="isAuthenticated()" th:href="@{/logout}">LOGOUT</a></li>
-                    <li><a class="thyemleaf2" sec:authorize="isAnonymous()" th:href="@{/signup}">SIGNUP</a></li>
-
-                </ul>
-            </nav>
- 
-        </header>
+                            <li> <a class="thyemleaf1" sec:authorize="isAuthenticated()"><span sec:authentication ="name"/>님! 오늘도 동네를위해!</a></li>
+                            <li> <a class="thyemleaf2" sec:authorize="isAnonymous()" th:href="@{/login}">LOGIN</a></li>
+                            <li> <a class="thyemleaf2" sec:authorize="isAnonymous()" th:href="@{/signup}">SIGNUP</a></li>
+                            <li> <a class="thyemleaf2" sec:authorize="isAuthenticated()" th:href="@{/logout}">LOGOUT</a></li>
 
 
+                        </ul>
+                    </nav>
+                </div>
 
-        <div class="data2_box">
 
         </div>
 
-        <div class="data1_box"
-             th:object="${api_airForm}">
+
+
+        <div class="data1_box" th:object="${api_airForm}">
 
             <div class="air_text">
                 <p class="air_text_in" th:text="${api_airForm.name}"></p>
-                서울 / 갱신시간 : <p th:text="${api_airForm.dataTime}"></p>
+                갱신시간 : <p th:text="${api_airForm.dataTime}"></p>
                 출처: 에어코리아
             </div>
 
@@ -72,7 +66,7 @@
                     <p class="gauge_green" th:text="${api_airForm.seoul}"></p>
                     <p class="danger">보통</p>
                 </span>
-                <span class="gauge" th:unless="${api_airForm.seoul}>0">
+                <span class="gauge" th:if="${api_airForm.seoul}>0">
                     <p class="gauge_blue" th:text="${api_airForm.seoul}"></p>
                     <p class="danger">좋음</p>
                 </span>
@@ -92,7 +86,7 @@
                     <p class="gauge_green" th:text="${api_airForm.busan}"></p>
                     <p class="danger">보통</p>
                 </span>
-                <span class="gauge" th:unless="${api_airForm.busan}>0">
+                <span class="gauge" th:if="${api_airForm.busan}>0">
                     <p class="gauge_blue" th:text="${api_airForm.busan}"></p>
                     <p class="danger">좋음</p>
                 </span>
@@ -112,7 +106,7 @@
                     <p class="gauge_green" th:text="${api_airForm.gwangju}"></p>
                     <p class="danger">보통</p>
                 </span>
-                <span class="gauge" th:unless="${api_airForm.gwangju}>0">
+                <span class="gauge" th:if="${api_airForm.gwangju}>0">
                     <p class="gauge_blue" th:text="${api_airForm.gwangju}"></p>
                     <p class="danger">좋음</p>
                 </span>
@@ -132,7 +126,7 @@
                     <p class="gauge_green" th:text="${api_airForm.jeju}"></p>
                     <p class="danger">보통</p>
                 </span>
-                <span class="gauge" th:unless="${api_airForm.jeju}>0">
+                <span class="gauge" th:if="${api_airForm.jeju}>0">
                     <p class="gauge_blue" th:text="${api_airForm.jeju}"></p>
                     <p class="danger">좋음</p>
                 </span>
@@ -142,10 +136,11 @@
 
         </div>
 
-        <h3>성격으로 알아보는</h3>
-        <h1>당신의</h1>
-        <h1>씀씀이 테스트</h1>
-
+        <div class="home_main_text">
+            <h3>성격으로 알아보는</h3>
+            <h1>당신의</h1>
+            <h1>씀씀이 테스트</h1>
+        </div>
 
         <div class="recycle_icon">
             <img src="/img/testicon.jpg" width="200px" height="200px">
@@ -153,7 +148,9 @@
         <div>
             <button id="startButton" input type = "button" onclick= "location.href='/question/1'" >시작하기</button>
         </div>
-        <div class="activate">
+
+
+        <div class="activate" sec:authorize="isAuthenticated()">
             <div>
                 <button id="activate1" input type = "button" onclick= "location.href='/pages/Information/information.html'" >대중교통 이용하기 10/10 <img src="/img/complate.png" width="25" height="25"> </button>
             </div>
