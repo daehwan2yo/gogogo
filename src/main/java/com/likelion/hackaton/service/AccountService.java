@@ -5,6 +5,7 @@ import com.likelion.hackaton.entity.City;
 import com.likelion.hackaton.entity.Role;
 import com.likelion.hackaton.exception.UserNotFoundException;
 import com.likelion.hackaton.form.SignupForm;
+import com.likelion.hackaton.form.User_info;
 import com.likelion.hackaton.repository.AccountRepository;
 import com.likelion.hackaton.repository.CityRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,15 +111,18 @@ public class AccountService implements UserDetailsService {
 
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Account account= accountRepository.findByEmail(username)
-                .orElseThrow(()->new UserNotFoundException());
-        List<GrantedAuthority> authorityList = new ArrayList<>();
+    public UserDetails loadUserByUsername(String username) {
 
-        authorityList.add(new SimpleGrantedAuthority(Role.USER.getValue()));
+            Account account = accountRepository.findByEmail(username)
+                    .orElseThrow(() -> new UserNotFoundException());
+            List<GrantedAuthority> authorityList = new ArrayList<>();
 
-        return new User(account.getName(),account.getPassword(),authorityList);
-    }
+            authorityList.add(new SimpleGrantedAuthority(Role.USER.getValue()));
+
+            return new User(account.getName(), account.getPassword(), authorityList);
+
+        }
+}
 
 
     /**
@@ -129,5 +134,3 @@ public class AccountService implements UserDetailsService {
      *
      * 메서드에 따로 선언한 transactional 이 우선
      */
-
-}

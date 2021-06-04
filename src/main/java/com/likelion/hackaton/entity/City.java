@@ -1,9 +1,6 @@
 package com.likelion.hackaton.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
@@ -11,6 +8,7 @@ import java.util.List;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -53,17 +51,10 @@ public class City {
     @ColumnDefault("0")
     private int todo_6;
 
-    @Column
-    @ColumnDefault("0")
-    private int todo_7;
+    public void setTodo_1(){
+        this.todo_1 = 1;
+    }
 
-    @Column
-    @ColumnDefault("0")
-    private int todo_8;
-
-    @Column
-    @ColumnDefault("0")
-    private int todo_9;
-
+    public final String one = "먹방 꿈나무";
 
 }

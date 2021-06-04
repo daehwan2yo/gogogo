@@ -4,14 +4,13 @@
   background-color: white;
   border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
   width: 15%;
-  height: 50%;
-  padding: 40px 30px;
+  height: 70%;
+  padding: 50px 30px;
 }
 
 .signUp_container img {
-  height: 51px;
+  height: 30%;
   object-fit: contain;
-  margin-bottom: 10px;
 }
 
 .joinLetter {
