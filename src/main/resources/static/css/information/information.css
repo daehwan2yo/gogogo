@@ -65,7 +65,8 @@ body {
 
 .badge_img {
   align-items: center;
-  margin-top: 100px;
+
+
 }
 
 #page {
@@ -73,7 +74,15 @@ body {
   margin: 0px auto;
 }
 
-
+.echo_bag1{
+  margin-left: 15px;
+  float:left;
+  width: 15%;
+}
+.echo_bag2{
+  float:right;
+  width: 15%;
+}
 * footer {
   width: 100%; /*헤더와 같은 사이즈*/
   height: 120px;

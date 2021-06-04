@@ -40,4 +40,5 @@ public class CityService {
         return cityRepository.findByName(name)
                 .orElseThrow(()-> new CityNotFoundException());
     }
+
 }

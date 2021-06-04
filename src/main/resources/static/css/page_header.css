@@ -21,21 +21,20 @@ img{
 .home_header{
     box-sizing: content-box;
     width: 110%;
-    height: 200px;
+    height: 100px;
 }
 
 
 .logo_image{
     float: left;
     width: 20%;
-    margin-top:7%;
 }
 
 
 .home_menu{
     float: right;
     width: 70%;
-    margin-top: 17%;
+    margin-top: 10%;
 }
 
 

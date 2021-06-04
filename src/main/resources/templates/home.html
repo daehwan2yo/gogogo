@@ -66,7 +66,7 @@
                     <p class="gauge_green" th:text="${api_airForm.seoul}"></p>
                     <p class="danger">보통</p>
                 </span>
-                <span class="gauge" th:if="${api_airForm.seoul}>0">
+                <span class="gauge" th:if="${api_airForm.seoul}<31 and ${api_airForm.seoul}>0">
                     <p class="gauge_blue" th:text="${api_airForm.seoul}"></p>
                     <p class="danger">좋음</p>
                 </span>
@@ -86,7 +86,7 @@
                     <p class="gauge_green" th:text="${api_airForm.busan}"></p>
                     <p class="danger">보통</p>
                 </span>
-                <span class="gauge" th:if="${api_airForm.busan}>0">
+                <span class="gauge" th:if="${api_airForm.busan}<31 and  ${api_airForm.busan}>0">
                     <p class="gauge_blue" th:text="${api_airForm.busan}"></p>
                     <p class="danger">좋음</p>
                 </span>
@@ -106,7 +106,7 @@
                     <p class="gauge_green" th:text="${api_airForm.gwangju}"></p>
                     <p class="danger">보통</p>
                 </span>
-                <span class="gauge" th:if="${api_airForm.gwangju}>0">
+                <span class="gauge" th:if="${api_airForm.gwangju}<31 and ${api_airForm.gwangju}>0">
                     <p class="gauge_blue" th:text="${api_airForm.gwangju}"></p>
                     <p class="danger">좋음</p>
                 </span>
@@ -126,7 +126,7 @@
                     <p class="gauge_green" th:text="${api_airForm.jeju}"></p>
                     <p class="danger">보통</p>
                 </span>
-                <span class="gauge" th:if="${api_airForm.jeju}>0">
+                <span class="gauge" th:if="${api_airForm.jeju}<31 and ${api_airForm.jeju}>0">
                     <p class="gauge_blue" th:text="${api_airForm.jeju}"></p>
                     <p class="danger">좋음</p>
                 </span>
@@ -150,24 +150,33 @@
         </div>
 
 
-        <div class="activate" sec:authorize="isAuthenticated()">
+        <div class="activate" sec:authorize="isAuthenticated()" th:object="${city}">
             <div>
-                <button id="activate1" input type = "button" onclick= "location.href='/information'" >대중교통 이용하기 10/10 <img src="/img/complate.png" width="25" height="25"> </button>
+                <button id="activate1" input type = "button" th:text="'먹방 꿈나무 ' + ${city.getTodo_1() +' / 10'}"
+                        onclick= "location.href='/information'" >
+                    대중교통 이용하기<img src="/img/complate.png" width="25" height="25"> </button>
+            </div>
+
+            <div>
+                <button id="activate2" input type = "button" th:text="'내 차는 버스 ' + ${city.getTodo_2() +' / 10'}"
+                        onclick= "location.href='/information'" >에코백 사용하기 5/10 <img src="/img/incomplate.png" width="25" height="25"></button>
+            </div>
+
+            <div>
+                <button id="activate3" input type = "button" th:text="'탄소 청소기 ' + ${city.getTodo_3() +' / 10'}"
+                        onclick= "location.href='/information'" >냉·난방기 사용 시간 줄이기 7/10 <img src="/img/incomplate.png" width="25" height="25"></button>
             </div>
             <div>
-                <button id="activate2" input type = "button" onclick= "location.href='/information'" >에코백 사용하기 5/10 <img src="/img/incomplate.png" width="25" height="25"></button>
+                <button id="activate4" input type = "button" th:text="'아낌왕 전기 ' + ${city.getTodo_4() +' / 10'}"
+                        onclick= "location.href='/information'" >계단 이용하기 3/10 <img src="/img/incomplate.png" width="25" height="25"></button>
             </div>
             <div>
-                <button id="activate3" input type = "button" onclick= "location.href='/information'" >냉·난방기 사용 시간 줄이기 7/10 <img src="/img/incomplate.png" width="25" height="25"></button>
+                <button id="activate5" input type = "button" th:text="'내이름 김계단 ' + ${city.getTodo_5() +' / 10'}"
+                        onclick= "location.href='/information'" >분리수거 잘하기 10/10 <img src="/img/complate.png" width="25" height="25"></button>
             </div>
             <div>
-                <button id="activate4" input type = "button" onclick= "location.href='/information'" >계단 이용하기 3/10 <img src="/img/incomplate.png" width="25" height="25"></button>
-            </div>
-            <div>
-                <button id="activate5" input type = "button" onclick= "location.href='/information'" >분리수거 잘하기 10/10 <img src="/img/complate.png" width="25" height="25"></button>
-            </div>
-            <div>
-                <button id="activate6" input type = "button" onclick= "location.href='/information'" >전기사용시간 줄이기 10/10 <img src="/img/complate.png" width="25" height="25"></button>
+                <button id="activate6" input type = "button" th:text="'재활용 왕자 ' + ${city.getTodo_6() +' / 10'}"
+                        onclick= "location.href='/information'" >전기사용시간 줄이기 10/10 <img src="/img/complate.png" width="25" height="25"></button>
             </div>
         </div>
     </div>
