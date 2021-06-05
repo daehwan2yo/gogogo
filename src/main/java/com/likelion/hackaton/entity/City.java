@@ -51,10 +51,6 @@ public class City {
     @ColumnDefault("0")
     private int todo_6;
 
-    public void setTodo_1(){
-        this.todo_1 = 1;
-    }
-
     public final String one = "먹방 꿈나무";
 
 }

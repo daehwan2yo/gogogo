@@ -32,7 +32,6 @@
 }
 
 .content{
-    font-family: Noto Sans Cjk kr black;
     font-weight: bold;
     font-size: 15px;
     text-align: center;
@@ -68,7 +67,6 @@
 
     text-align: center;
     font-size: 15px;
-    font-family: Noto Sans Cjk kr;
     font-weight: bold;
 
 }
@@ -82,8 +80,7 @@
 }
 
 .ment1{
-    
-    font-family: Noto Sans Cjk kr bold;
+
     font-size: 22px;
 }
 .dish{
@@ -95,7 +92,6 @@
 
 .ment2{
 
-    font-family: Noto Sans Cjk kr;
     font-size: 13px;
     text-align: center;
     
@@ -133,7 +129,6 @@
 
 .result{
 
-    font-family: Noto Sans Cjk kr;
     box-sizing: border-box;
     width: 400px;
     height: 55px;

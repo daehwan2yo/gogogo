@@ -18,6 +18,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @Slf4j
 public class HomeController {
@@ -84,7 +87,18 @@ public class HomeController {
             model.addAttribute("user_info", user_info);
 
             City city = cityRepository.findByName(account.getCityName()).orElseThrow(CityNotFoundException::new);
+
+            List<Integer> cityScoreList = new ArrayList<>();
+
+            cityScoreList.add(city.getTodo_1());
+            cityScoreList.add(city.getTodo_2());
+            cityScoreList.add(city.getTodo_3());
+            cityScoreList.add(city.getTodo_4());
+            cityScoreList.add(city.getTodo_5());
+            cityScoreList.add(city.getTodo_6());
+
             log.info(city.getName());
+            model.addAttribute("cityList",cityScoreList);
             model.addAttribute("city",city);
 
 
