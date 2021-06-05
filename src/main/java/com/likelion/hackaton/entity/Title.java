@@ -1,6 +1,7 @@
 package com.likelion.hackaton.entity;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 
 @Entity
 @Getter
+@Setter
 public class Title {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,7 +52,4 @@ public class Title {
         badge_6 = 0;
     }
 
-    public void setBadge_1(){
-        this.badge_1 = 1;
-    }
 }

@@ -52,15 +52,73 @@ public class QuestionController {
 
                 City city = cityRepository.findByName(account.getCityName()).orElseThrow(CityNotFoundException::new);
 
-                city.setTodo_1();
-                city.getTitle().setBadge_1();
-                cityRepository.flush();
-                titleRepository.flush();
-            }catch (UserNotFoundException u){
+                int rand = (int)(Math.random()*10);
 
+                if(rand>6){
+                    int imp = city.getTodo_1();
+                    city.setTodo_1(++imp);
+                    city.getTitle().setBadge_1(imp);
+                    cityRepository.flush();
+                    titleRepository.flush();
+                    return "result";
+
+                }
+                else if (rand ==1){
+                    int imp = city.getTodo_2();
+                    city.setTodo_1(++imp);
+                    city.getTitle().setBadge_1(imp);
+                    cityRepository.flush();
+                    titleRepository.flush();
+                    return "result";
+                }
+                else if (rand ==2) {
+                    int imp = city.getTodo_3();
+                    city.setTodo_2(++imp);
+                    city.getTitle().setBadge_2(imp);
+                    cityRepository.flush();
+                    titleRepository.flush();
+                    return "result2";
+                }
+                else if (rand ==3){
+                    int imp = city.getTodo_3();
+                    city.setTodo_3(++imp);
+                    city.getTitle().setBadge_3(imp);
+                    cityRepository.flush();
+                    titleRepository.flush();
+                    return "result3";
+
+                }
+                else if (rand ==4){
+                    int imp = city.getTodo_4();
+                    city.setTodo_4(++imp);
+                    city.getTitle().setBadge_4(imp);
+                    cityRepository.flush();
+                    titleRepository.flush();
+                    return "result4";
+
+                }
+                else if (rand ==5) {
+                    int imp = city.getTodo_5();
+                    city.setTodo_5(++imp);
+                    city.getTitle().setBadge_5(imp);
+                    cityRepository.flush();
+                    titleRepository.flush();
+                    return "result5";
+                }
+                else if (rand ==6) {
+                    int imp = city.getTodo_1();
+                    city.setTodo_6(++imp);
+                    city.getTitle().setBadge_6(imp);
+                    cityRepository.flush();
+                    titleRepository.flush();
+                    return "result6";
+                }
+
+            }catch (UserNotFoundException u){
+                return "result";
             }
-            return "result";
         }
+
         QuestionForm questionForm = questionService.getQuestion(questionNo);
         model.addAttribute("questionForm",questionForm);
         log.info("get quesion : "+questionNo);
